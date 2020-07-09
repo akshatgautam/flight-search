@@ -5,7 +5,7 @@ const dateUtils = {
 
     if (dateFields && timeFields) {
       return Date.UTC(...dateFields, ...timeFields);
-    } else if (dateFields) {
+    } if (dateFields) {
       return Date.UTC(...dateFields);
     }
     return null;
