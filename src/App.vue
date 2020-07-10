@@ -1,24 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <head-bar></head-bar>
+    <div class="app-body">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+import router from './router';
+import headBar from './components/head-bar/head-bar.vue';
 
 export default {
   name: 'App',
-  components: {},
+  components: {
+    headBar,
+  },
+  router,
 };
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>

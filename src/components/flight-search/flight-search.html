@@ -1,3 +1,17 @@
 <div class="flight-search">
+  <select name="origin" v-model="selectedOrigin">
+    <option selected="true" value="None">Select Origin</option>
+    <option v-for="origin in originList" :value="origin.value">
+      {{ origin.label }}
+    </option>
+  </select>
 
+  <select name="destination" v-model="selectedDestination">
+    <option selected="true" value="None">Select Destination</option>
+    <option v-for="destination in destinationList" :value="destination.value">
+      {{ destination.label }}
+    </option>
+  </select>
+
+  <button @click="searchFlights" :disabled="!enableSearch">Search</button>
 </div>
