@@ -6,6 +6,7 @@
     <template slot="tab-panel-one-way">
       <flight-search
         @flightSearch="findSearchedFlights($event)"
+        @priceCapped="filterFlights($event)"
       ></flight-search>
     </template>
 
@@ -17,21 +18,27 @@
       <flight-search
         returnTrip
         @flightSearch="findSearchedFlights($event)"
+        @priceCapped="filterFlights($event)"
       ></flight-search>
     </template>
   </tab>
 
-  <flight-list
-    :origin="origin"
-    :destination="destination"
-    :journeyDate="departureDate"
-    :flightList="suggestedToFlights"
-  ></flight-list>
-  <flight-list
-    :origin="destination"
-    :destination="origin"
-    :journeyDate="returnDate"
-    v-if="suggestedFromFlights.length"
-    :flightList="suggestedFromFlights"
-  ></flight-list>
+  <div class="results d-flex">
+    <flight-list
+      :origin="origin"
+      :destination="destination"
+      :journeyDate="departureDate"
+      :flightList="suggestedToFlights"
+      :passengers="passengers"
+    ></flight-list>
+
+    <flight-list
+      :origin="destination"
+      :destination="origin"
+      :journeyDate="returnDate"
+      v-if="suggestedFromFlights.length"
+      :flightList="suggestedFromFlights"
+      :passengers="passengers"
+    ></flight-list>
+  </div>
 </div>

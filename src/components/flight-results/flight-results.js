@@ -23,6 +23,7 @@ export default {
       returnDate: '',
       tabs: ['one-way', 'round-trip'],
       initialTab: 'one-way',
+      passengers: 1,
     };
   },
   mixins: [searchMixin],
@@ -50,6 +51,7 @@ export default {
       this.origin = searchObject.originLabel;
       this.destination = searchObject.destinationLabel;
       this.departureDate = searchObject.departureDate;
+      this.passengers = searchObject.passengers;
       this.suggestedToFlights = this
         .getFlights(searchObject.originCode, searchObject.destinationCode);
       if (searchObject.returnTrip) {

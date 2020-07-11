@@ -5,50 +5,64 @@
         <div class="flight-details d-flex">
           <img src="" alt="" />
           <div>
-            <p class="airline">
+            <p class="airline font-bold">
               Multiple
             </p>
-            <a href="javascript:void(0)" @click="toggleDetails">
-                {{detailsVisible ? 'Hide Details' : 'Show Details'}}
+            <a
+              class="font-cta"
+              href="javascript:void(0)"
+              @click="toggleDetails"
+            >
+              {{detailsVisible ? 'Hide Details' : 'Show Details'}}
             </a>
           </div>
         </div>
         <div class="journey-details d-flex">
           <div class="duration d-flex">
             <div class="start">
-              <p class="time">
+              <p class="time font-bold">
                 {{flightSummary.departureTime}}
               </p>
-              <p class="place">
+              <p class="place font-small font-color-sec">
                 {{flightSummary.origin}}
               </p>
             </div>
+            <div class="et d-flex flex-column align-items-center">
+              <p  class="font-bold">
+                {{duration[0].hours}}h {{duration[0].minutes}}m
+              </p>
+              <span class="font-small font-color-sec">
+                <i class="fas fa-plane"></i>
+              </span>
+            </div>
             <div class="end">
-              <p class="time">
+              <p class="time font-bold">
                 {{flightSummary.arrivalTime}}
               </p>
-              <p class="place">
+              <p class="place font-small font-color-sec">
                 {{flightSummary.destination}}
               </p>
             </div>
           </div>
-          <div class="booking d-flex justify-content-end align-items-center justify-content-end">
-            <p class="price">
-              {{flightSummary.price}}
+          <div
+            class="booking d-flex justify-content-end align-items-center justify-content-end"
+          >
+            <p class="price font-alert font-bold">
+              ₹ {{flightSummary.price}}
             </p>
-            <button class="book">Book</button>
+            <button class="book secondary">Book</button>
           </div>
         </div>
       </div>
       <template v-if="detailsVisible">
-        <div v-for="flight in data" class="flight d-flex">
+        <div v-for="(flight, idx) in data" class="flight d-flex flex-wrap">
           <div class="flight-details d-flex">
             <img src="" alt="" />
             <div>
-              <p class="airline">
+              <p class="airline font-bold">
                 {{flight.name}}
               </p>
-              <p class="flight-no">
+              <p class="flight-no font-small font-color-sec">
                 {{flight.flightNo}}
               </p>
             </div>
@@ -56,22 +70,35 @@
           <div class="journey-details d-flex">
             <div class="duration d-flex">
               <div class="start">
-                <p class="time">
+                <p class="time font-bold">
                   {{flight.departureTime}}
                 </p>
-                <p class="place">
+                <p class="place font-small font-color-sec">
                   {{flight.origin}}
                 </p>
               </div>
+              <div class="et d-flex flex-column align-items-center">
+                <p  class="font-bold">
+                  {{duration[idx + 1].hours}}h {{duration[idx + 1].minutes}}m
+                </p>
+                <span class="font-small font-color-sec">
+                  <i class="fas fa-plane"></i>
+                </span>
+              </div>
               <div class="end">
-                <p class="time">
+                <p class="time font-bold">
                   {{flight.arrivalTime}}
                 </p>
-                <p class="place">
+                <p class="place font-small font-color-sec">
                   {{flight.destination}}
                 </p>
               </div>
             </div>
+          </div>
+          <div class="separator" v-if="idx === 0">
+            <p class="layover font-small font-color-sec">
+              Layover time {{layover.hours}}h {{layover.minutes}}m
+            </p>
           </div>
         </div>
       </template>
@@ -83,10 +110,10 @@
       <div class="flight-details d-flex">
         <img src="" alt="" />
         <div>
-          <p class="airline">
+          <p class="airline font-bold">
             {{data.name}}
           </p>
-          <p class="flight-no">
+          <p class="flight-no font-small font-color-sec">
             {{data.flightNo}}
           </p>
         </div>
@@ -94,27 +121,37 @@
       <div class="journey-details d-flex">
         <div class="duration d-flex">
           <div class="start">
-            <p class="time">
+            <p class="time font-bold">
               {{data.departureTime}}
             </p>
-            <p class="place">
+            <p class="place font-small font-color-sec">
               {{data.origin}}
             </p>
           </div>
+          <div class="et d-flex flex-column align-items-center">
+            <p  class="font-bold">
+              {{duration.hours}}h {{duration.minutes}}m
+            </p>
+            <span class="font-small font-color-sec">
+              <i class="fas fa-plane"></i>
+            </span>
+          </div>
           <div class="end">
-            <p class="time">
+            <p class="time font-bold">
               {{data.arrivalTime}}
             </p>
-            <p class="place">
+            <p class="place font-small font-color-sec">
               {{data.destination}}
             </p>
           </div>
         </div>
-        <div class="booking d-flex justify-content-end align-items-center justify-content-end">
-          <p class="price">
-            {{data.price}}
+        <div
+          class="booking d-flex justify-content-end align-items-center justify-content-end"
+        >
+          <p class="price font-alert font-bold">
+            ₹ {{data.price}}
           </p>
-          <button class="book">Book</button>
+          <button class="book secondary">Book</button>
         </div>
       </div>
     </div>

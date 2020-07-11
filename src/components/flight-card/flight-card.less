@@ -19,6 +19,20 @@
             text-align: center;
           }
         }
+        .et {
+          position: relative;
+          > span {
+            width: 50%;
+            display: inline-block;
+            border-bottom: 1px solid @text-color-secondary;
+            height: 0;
+            i {
+              position: absolute;
+              left: 50%;
+              transform: translate(-50%, calc(-50% + 1px));
+            }
+          }
+        }
       }
       .booking {
         width: 40%;
@@ -30,6 +44,19 @@
     }
     .flight-details {
       margin-right: 24px;
+    }
+  }
+  .multiple-flights {
+    .flight {
+      background-color: @gray;
+      .separator {
+        width: 100%;
+        text-align: center;
+        p {
+          padding: 4px;
+          border: 1px dashed @text-color-secondary;
+        }
+      }
     }
   }
 }

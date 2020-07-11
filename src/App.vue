@@ -33,7 +33,7 @@ body {
   font-family: 'Rubik', 'sans serif';
   margin: 0;
   font-size: @font-size-body;
-  color: @text-color-body;
+  color: @text-color-primary;
 }
 
 .app-body {

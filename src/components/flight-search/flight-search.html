@@ -1,6 +1,9 @@
 <div class="flight-search">
   <div class="form-group">
-    <label for="origin">Enter Origin City</label>
+    <label for="origin">
+      <i class="fas fa-plane-departure"></i>
+      Enter Origin City
+    </label>
     <select id="origin" name="origin" v-model="selectedOrigin" v-custom-input>
       <option v-for="origin in originList" :value="origin.value">
         {{ origin.label }}
@@ -9,7 +12,10 @@
   </div>
 
   <div class="form-group">
-    <label for="dest">Enter Destination City</label>
+    <label for="dest">
+      <i class="fas fa-plane-arrival"></i>
+      Enter Destination City
+    </label>
     <select
       id="dest"
       name="destination"
@@ -24,12 +30,13 @@
 
   <div class="form-group">
     <label for="dep-date">Departure Date</label>
-    <datepicker :format="dateFormat" v-model="departureDate"></datepicker>
+    <datepicker :format="dateFormat" v-model="departureDate" :disabledDates="allowedDates"></datepicker>
     <input
       id="dep-date"
       type="text"
       name="departure-date"
       v-model="departureDate"
+      tabindex="-1"
       v-custom-input
     />
     <i class="far fa-calendar-alt"></i>
@@ -41,16 +48,39 @@
       ref="arr"
       :format="dateFormat"
       v-model="returnDate"
+      :disabledDates="allowedDates"
     ></datepicker>
     <input
       id="arr-date"
       type="text"
       name="return-date"
       v-model="returnDate"
+      tabindex="-1"
       v-custom-input
     />
     <i class="far fa-calendar-alt"></i>
   </div>
 
-  <button @click="searchFlights" :disabled="!enableSearch">Search</button>
+  <div class="form-group">
+    <label for="pass">Select Passengers</label>
+    <select
+      id="pass"
+      name="passengers"
+      v-model="passengers"
+      v-custom-input
+    >
+      <option v-for="p in 4" :value="p">
+        {{ p}}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="price">
+      Price Range
+    </label>
+    <input @change="triggerSearchFilter" :min="minPrice" :max="maxPrice" type="range" name="price" id="price" v-model="priceCap">
+  </div>
+
+  <button type="button" class="primary" @click="searchFlights" :disabled="!enableSearch">Search</button>
 </div>
