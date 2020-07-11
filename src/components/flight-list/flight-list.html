@@ -1,3 +1,21 @@
 <div class="flight-list">
-
+  <template v-if="flightList.length">
+    <header class="d-flex">
+      <i class="fas fa-plane"></i>
+      <div class="details">
+        <h2>
+          {{origin}} to {{destination}}
+        </h2>
+        <span>
+          {{flightList.length}} flights found
+        </span>
+        <span>
+          {{day}}
+        </span>
+      </div>
+    </header>
+    <template v-for="flight in flightList">
+      <flight-card :data="flight"></flight-card>
+    </template>
+  </template>
 </div>

@@ -1,1 +1,35 @@
-.flight-card {}
+.flight-card {
+  width: 100%;
+  border-radius: 6px;
+  padding: 16px 24px;
+  background-color: @white;
+  box-shadow: 0 0 6px 0 @shadow-color;
+  margin-bottom: 24px;
+  .multiple-flights,
+  .flight {
+    width: 100%;
+    .journey-details {
+      flex: 1;
+      .duration {
+        width: 60%;
+        margin-right: 24px;
+        & > div {
+          flex: 1;
+          & > p {
+            text-align: center;
+          }
+        }
+      }
+      .booking {
+        width: 40%;
+        p,
+        button {
+          flex: 1;
+        }
+      }
+    }
+    .flight-details {
+      margin-right: 24px;
+    }
+  }
+}

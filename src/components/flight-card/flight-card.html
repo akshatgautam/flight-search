@@ -1,3 +1,122 @@
-<div class="flight-card">
+<div class="flight-card d-flex">
+  <template v-if="hasHalt">
+    <div class="multiple-flights">
+      <div class="summary d-flex">
+        <div class="flight-details d-flex">
+          <img src="" alt="" />
+          <div>
+            <p class="airline">
+              Multiple
+            </p>
+            <a href="javascript:void(0)" @click="toggleDetails">
+                {{detailsVisible ? 'Hide Details' : 'Show Details'}}
+            </a>
+          </div>
+        </div>
+        <div class="journey-details d-flex">
+          <div class="duration d-flex">
+            <div class="start">
+              <p class="time">
+                {{flightSummary.departureTime}}
+              </p>
+              <p class="place">
+                {{flightSummary.origin}}
+              </p>
+            </div>
+            <div class="end">
+              <p class="time">
+                {{flightSummary.arrivalTime}}
+              </p>
+              <p class="place">
+                {{flightSummary.destination}}
+              </p>
+            </div>
+          </div>
+          <div class="booking d-flex justify-content-end align-items-center justify-content-end">
+            <p class="price">
+              {{flightSummary.price}}
+            </p>
+            <button class="book">Book</button>
+          </div>
+        </div>
+      </div>
+      <template v-if="detailsVisible">
+        <div v-for="flight in data" class="flight d-flex">
+          <div class="flight-details d-flex">
+            <img src="" alt="" />
+            <div>
+              <p class="airline">
+                {{flight.name}}
+              </p>
+              <p class="flight-no">
+                {{flight.flightNo}}
+              </p>
+            </div>
+          </div>
+          <div class="journey-details d-flex">
+            <div class="duration d-flex">
+              <div class="start">
+                <p class="time">
+                  {{flight.departureTime}}
+                </p>
+                <p class="place">
+                  {{flight.origin}}
+                </p>
+              </div>
+              <div class="end">
+                <p class="time">
+                  {{flight.arrivalTime}}
+                </p>
+                <p class="place">
+                  {{flight.destination}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </template>
 
+  <template v-else>
+    <div class="flight direct-flight d-flex">
+      <div class="flight-details d-flex">
+        <img src="" alt="" />
+        <div>
+          <p class="airline">
+            {{data.name}}
+          </p>
+          <p class="flight-no">
+            {{data.flightNo}}
+          </p>
+        </div>
+      </div>
+      <div class="journey-details d-flex">
+        <div class="duration d-flex">
+          <div class="start">
+            <p class="time">
+              {{data.departureTime}}
+            </p>
+            <p class="place">
+              {{data.origin}}
+            </p>
+          </div>
+          <div class="end">
+            <p class="time">
+              {{data.arrivalTime}}
+            </p>
+            <p class="place">
+              {{data.destination}}
+            </p>
+          </div>
+        </div>
+        <div class="booking d-flex justify-content-end align-items-center justify-content-end">
+          <p class="price">
+            {{data.price}}
+          </p>
+          <button class="book">Book</button>
+        </div>
+      </div>
+    </div>
+  </template>
 </div>

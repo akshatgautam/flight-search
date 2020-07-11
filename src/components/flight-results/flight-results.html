@@ -1,5 +1,16 @@
 <div class="flight-results d-flex">
   <flight-search @flightSearch="findSearchedFlights($event)"></flight-search>
-  <flight-list></flight-list>
-  <flight-list></flight-list>
+  <flight-list
+    :origin="origin"
+    :destination="destination"
+    :journeyDate="departureDate"
+    :flightList="suggestedToFlights"
+  ></flight-list>
+  <flight-list
+    :origin="destination"
+    :destination="origin"
+    :journeyDate="returnDate"
+    v-if="suggestedFromFlights.length"
+    :flightList="suggestedFromFlights"
+  ></flight-list>
 </div>

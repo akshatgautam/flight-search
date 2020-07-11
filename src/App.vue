@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,4 +29,15 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
+body {
+  font-family: 'Rubik', 'sans serif';
+  margin: 0;
+  font-size: @font-size-body;
+  color: @text-color-body;
+}
+
+.app-body {
+  margin-top: 122px;
+  padding: 24px;
+}
 </style>

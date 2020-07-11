@@ -1,17 +1,56 @@
 <div class="flight-search">
-  <select name="origin" v-model="selectedOrigin">
-    <option selected="true" value="None">Select Origin</option>
-    <option v-for="origin in originList" :value="origin.value">
-      {{ origin.label }}
-    </option>
-  </select>
+  <div class="form-group">
+    <label for="origin">Enter Origin City</label>
+    <select id="origin" name="origin" v-model="selectedOrigin" v-custom-input>
+      <option v-for="origin in originList" :value="origin.value">
+        {{ origin.label }}
+      </option>
+    </select>
+  </div>
 
-  <select name="destination" v-model="selectedDestination">
-    <option selected="true" value="None">Select Destination</option>
-    <option v-for="destination in destinationList" :value="destination.value">
-      {{ destination.label }}
-    </option>
-  </select>
+  <div class="form-group">
+    <label for="dest">Enter Destination City</label>
+    <select
+      id="dest"
+      name="destination"
+      v-model="selectedDestination"
+      v-custom-input
+    >
+      <option v-for="destination in destinationList" :value="destination.value">
+        {{ destination.label }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="dep-date">Departure Date</label>
+    <datepicker :format="dateFormat" v-model="departureDate"></datepicker>
+    <input
+      id="dep-date"
+      type="text"
+      name="departure-date"
+      v-model="departureDate"
+      v-custom-input
+    />
+    <i class="far fa-calendar-alt"></i>
+  </div>
+
+  <div class="form-group">
+    <label for="arr-date">Return Date</label>
+    <datepicker
+      ref="arr"
+      :format="dateFormat"
+      v-model="returnDate"
+    ></datepicker>
+    <input
+      id="arr-date"
+      type="text"
+      name="return-date"
+      v-model="returnDate"
+      v-custom-input
+    />
+    <i class="far fa-calendar-alt"></i>
+  </div>
 
   <button @click="searchFlights" :disabled="!enableSearch">Search</button>
 </div>

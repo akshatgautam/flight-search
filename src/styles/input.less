@@ -1,0 +1,60 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 16px;
+  margin-bottom: 24px;
+
+  label {
+    font-weight: @font-weight-normal;
+    position: absolute;
+    margin: 0 0 8px;
+    transition: transform 150ms ease-out;
+  }
+
+  input,
+  select {
+    font-size: @font-size-body;
+    font-weight: @font-weight-normal;
+    color: @text-color-body;
+    border: 0;
+    border-bottom: 1px solid @text-color-body;
+    background: transparent;
+    padding: 0 0 8px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0px;
+  }
+
+  &.focused {
+    label {
+      transform: translateY(-125%);
+    }
+  }
+
+  .vdp-datepicker {
+    &__calendar {
+      right: 0;
+    }
+    input {
+      width: 100%;
+    }
+    & + input {
+      opacity: 0;
+      height: 0;
+      padding: 0;
+    }
+  }
+}
+
+button {
+  background-color: @red;
+  background-repeat: repeat-x;
+  border-color: @red;
+  color: @white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}

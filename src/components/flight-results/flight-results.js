@@ -13,7 +13,12 @@ export default {
   data() {
     return {
       flightData: null,
-      suggestedToFlights: null,
+      origin: '',
+      destination: '',
+      suggestedToFlights: [],
+      suggestedFromFlights: [],
+      departureDate: '',
+      returnDate: '',
     };
   },
   mixins: [searchMixin],
@@ -36,7 +41,16 @@ export default {
       console.log(err);
     },
     findSearchedFlights(searchObject) {
-      this.suggestedToFlights = this.getFlights(searchObject.origin, searchObject.destination);
+      this.origin = searchObject.originLabel;
+      this.destination = searchObject.destinationLabel;
+      this.departureDate = searchObject.departureDate;
+      this.suggestedToFlights = this
+        .getFlights(searchObject.originCode, searchObject.destinationCode);
+      if (searchObject.returnTrip) {
+        this.returnDate = searchObject.returnDate;
+        this.suggestedFromFlights = this
+          .getFlights(searchObject.destinationCode, searchObject.originCode);
+      }
     },
   },
 };
