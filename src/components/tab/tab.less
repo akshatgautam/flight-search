@@ -1,1 +1,32 @@
-.tab {}
+.tab {
+  .tabs-header {
+    width: 100%;
+    background-color: @white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .tab-heads {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tab-head {
+        color: @text-color-body;
+        text-decoration: none;
+      position: relative;
+      text-decoration: none;
+      padding:  8px 16px;
+    }
+
+    .tab-head--active {
+        color: @red;
+        border: 1px solid @red;
+        border-radius: 4px;
+      transition: 0.4s;
+    }
+  }
+  .tabs-body {
+      margin-top: 32px;
+  }
+}

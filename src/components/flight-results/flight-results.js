@@ -1,3 +1,4 @@
+import tab from '../tab/tab.vue';
 import flightSearch from '../flight-search/flight-search.vue';
 import flightList from '../flight-list/flight-list.vue';
 import endpoints from '../../endpoints';
@@ -6,6 +7,7 @@ import searchMixin from '../../search-mixin';
 export default {
   name: 'flight-results',
   components: {
+    tab,
     flightSearch,
     flightList,
   },
@@ -19,6 +21,8 @@ export default {
       suggestedFromFlights: [],
       departureDate: '',
       returnDate: '',
+      tabs: ['one-way', 'round-trip'],
+      initialTab: 'one-way',
     };
   },
   mixins: [searchMixin],
@@ -41,6 +45,8 @@ export default {
       console.log(err);
     },
     findSearchedFlights(searchObject) {
+      this.suggestedFromFlights = [];
+      this.suggestedToFlights = [];
       this.origin = searchObject.originLabel;
       this.destination = searchObject.destinationLabel;
       this.departureDate = searchObject.departureDate;

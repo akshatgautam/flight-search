@@ -20,7 +20,7 @@ export default {
       required: true,
     },
     journeyDate: {
-      type: Date,
+      type: [Date, String],
       required: true,
     },
   },
@@ -30,9 +30,9 @@ export default {
   directives: {},
   computed: {
     day() {
-      return `${days[this.journeyDate.getDay()]}, ${this.journeyDate.getDate()} ${
+      return this.journeyDate ? `${days[this.journeyDate.getDay()]}, ${this.journeyDate.getDate()} ${
         months[this.journeyDate.getMonth()]
-      }`;
+      }` : '';
     },
   },
   mounted() {},

@@ -1,5 +1,26 @@
 <div class="flight-results d-flex">
-  <flight-search @flightSearch="findSearchedFlights($event)"></flight-search>
+  <tab :tabs="tabs" :initialTab="initialTab">
+    <template slot="tab-head-one-way">
+      One way trip
+    </template>
+    <template slot="tab-panel-one-way">
+      <flight-search
+        @flightSearch="findSearchedFlights($event)"
+      ></flight-search>
+    </template>
+
+    <template slot="tab-head-round-trip">
+      Round trip
+    </template>
+
+    <template slot="tab-panel-round-trip">
+      <flight-search
+        returnTrip
+        @flightSearch="findSearchedFlights($event)"
+      ></flight-search>
+    </template>
+  </tab>
+
   <flight-list
     :origin="origin"
     :destination="destination"

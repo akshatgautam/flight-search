@@ -6,7 +6,12 @@ export default {
   components: {
     datepicker,
   },
-  props: {},
+  props: {
+    returnTrip: {
+      type: Boolean,
+      required: false,
+    },
+  },
   data() {
     return {
       originList: [
@@ -29,7 +34,6 @@ export default {
       ],
       selectedOrigin: '',
       selectedDestination: '',
-      returnTrip: false,
       departureDate: '',
       returnDate: '',
       dateFormat: 'dd-MM-yyyy',
@@ -43,7 +47,9 @@ export default {
       return this.originList.filter((place) => place.value !== this.selectedOrigin);
     },
     enableSearch() {
-      return this.selectedOrigin && this.selectedDestination;
+      return this.selectedOrigin && this.selectedDestination && this.departureDate && (
+        this.returnTrip ? this.returnDate : true
+      );
     },
     nameCodeMap() {
       const map = {};
