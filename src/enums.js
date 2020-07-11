@@ -19,4 +19,12 @@ const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 Object.freeze(days);
 
-export { months, days };
+const imgPositionIndex = {
+  AI: '-15px -358px',
+  SJ: '-15px -306px',
+  TW: '-15px -409px',
+};
+
+Object.freeze(imgPositionIndex);
+
+export { months, days, imgPositionIndex };

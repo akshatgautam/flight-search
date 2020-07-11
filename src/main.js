@@ -3,8 +3,6 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import App from './App.vue';
 
-import 'vue-slider-component/theme/antd.css';
-
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);

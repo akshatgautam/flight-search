@@ -1,4 +1,5 @@
 import dateUtils from '../../date-utils';
+import { imgPositionIndex } from '../../enums';
 
 export default {
   name: 'flight-card',
@@ -78,10 +79,19 @@ export default {
       return duration;
     },
   },
-  mounted() {},
+  mounted() {
+    if (this.hasHalt) {
+      this.$refs.flights.forEach((f) => f.style.setProperty('--logo-position', imgPositionIndex[f.dataset.airline]));
+      return;
+    }
+    this.$refs.flight.style.setProperty('--logo-position', imgPositionIndex[this.$refs.flight.dataset.airline]);
+  },
   methods: {
     toggleDetails() {
       this.detailsVisible = !this.detailsVisible;
+    },
+    getAirlineCode(number) {
+      return number.split('-')[0];
     },
   },
 };

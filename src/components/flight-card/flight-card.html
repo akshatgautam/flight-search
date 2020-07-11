@@ -3,7 +3,10 @@
     <div class="multiple-flights">
       <div class="summary d-flex">
         <div class="flight-details d-flex">
-          <img src="" alt="" />
+          <div class="connecting-logo">
+            <i class="fas fa-plane"></i>
+            <i class="fas fa-plane"></i>
+          </div>
           <div>
             <p class="airline font-bold">
               Multiple
@@ -54,10 +57,10 @@
           </div>
         </div>
       </div>
-      <template v-if="detailsVisible">
+      <div v-show="detailsVisible">
         <div v-for="(flight, idx) in data" class="flight d-flex flex-wrap">
           <div class="flight-details d-flex">
-            <img src="" alt="" />
+            <div class="logo" ref="flights" :data-airline="getAirlineCode(flight.flightNo)"></div>
             <div>
               <p class="airline font-bold">
                 {{flight.name}}
@@ -101,14 +104,14 @@
             </p>
           </div>
         </div>
-      </template>
+      </div>
     </div>
   </template>
 
   <template v-else>
     <div class="flight direct-flight d-flex">
       <div class="flight-details d-flex">
-        <img src="" alt="" />
+        <div class="logo" ref="flight" :data-airline="getAirlineCode(data.flightNo)"></div>
         <div>
           <p class="airline font-bold">
             {{data.name}}
