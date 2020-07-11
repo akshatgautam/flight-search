@@ -99,6 +99,8 @@ export default {
   },
   methods: {
     searchFlights() {
+      this.priceCap = 0;
+      this.filterResults();
       this.$emit('flightSearch', {
         originCode: this.selectedOrigin,
         originLabel: this.nameCodeMap[this.selectedOrigin],

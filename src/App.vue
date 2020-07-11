@@ -39,5 +39,9 @@ body {
 .app-body {
   margin-top: 122px;
   padding: 24px;
+
+  @media screen and (max-width: @mobile-max-width) {
+    margin-top: 84px;
+  }
 }
 </style>

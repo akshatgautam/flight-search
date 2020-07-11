@@ -23,7 +23,7 @@
     </template>
   </tab>
 
-  <div class="results d-flex">
+  <div class="results d-flex" v-if="suggestedToFlights.length">
     <flight-list
       :origin="origin"
       :destination="destination"
@@ -40,5 +40,10 @@
       :flightList="suggestedFromFlights"
       :passengers="passengers"
     ></flight-list>
+  </div>
+  <div class="no-results d-flex justify-content-center align-items-center" v-else>
+    <p>
+      Please search to show results!
+    </p>
   </div>
 </div>

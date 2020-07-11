@@ -42,6 +42,23 @@ export default {
       }` : '';
     },
     displayList() {
+      if (this.passengers > 1 && Number(this.priceCap)) {
+        return this.flightList.map((entry) => {
+          if (Array.isArray(entry)) {
+            return entry.map((item) => ({
+              ...item,
+              price: this.passengers * item.price,
+            }));
+          } return {
+            ...entry,
+            price: this.passengers * entry.price,
+          };
+        }).filter((entry) => {
+          if (Array.isArray(entry)) {
+            return entry.reduce((f1, f2) => f1.price + f2.price) < this.priceCap;
+          } return entry.price < this.priceCap;
+        });
+      }
       if (this.passengers > 1) {
         return this.flightList.map((entry) => {
           if (Array.isArray(entry)) {

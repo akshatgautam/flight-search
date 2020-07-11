@@ -59,4 +59,43 @@
       }
     }
   }
+  @media screen and (max-width: @mobile-max-width) {
+    .multiple-flights {
+      .summary {
+        flex-direction: column;
+        .flight-details {
+          margin: 0;
+          > div {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+    }
+    .multiple-flights,
+    .flight {
+      flex-direction: column;
+      .journey-details {
+        flex-direction: column;
+        .duration,
+        .booking {
+          width: 100%;
+        }
+        .duration {
+          .start {
+            p {
+              text-align: left;
+            }
+          }
+          .end {
+            p {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
 }

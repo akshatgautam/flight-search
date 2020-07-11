@@ -1,0 +1,25 @@
+button {
+  background-repeat: repeat-x;
+  color: @white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    background-color: @red;
+    border-color: @red;
+  }
+
+  &.secondary {
+    background-color: @green;
+    border-color: @green;
+  }
+  &[disabled] {
+    opacity: 0.5;
+  }
+}
