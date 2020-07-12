@@ -58,7 +58,7 @@ export default {
       return this.originList.filter((place) => place.value !== this.selectedOrigin);
     },
     enableSearch() {
-      return (
+      return !!(
         this.selectedOrigin
         && this.selectedDestination
         && this.departureDate

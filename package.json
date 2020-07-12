@@ -30,6 +30,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
+    "sinon": "^9.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
